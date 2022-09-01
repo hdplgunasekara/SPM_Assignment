@@ -6,6 +6,7 @@ const dotenv = require("dotenv");
 const app = express();
 require("dotenv").config();
 
+
 const PORT = process.env.PORT || 8090;
 
 app.use(cors());
@@ -27,7 +28,10 @@ connection.once("open",()=>{
     console.log("MongoDB Connected");
 });
 
+const articleRoutes = require("./src/api/routes/article.routes");
 
+
+app.use("/article",articleRoutes);
 
 
 app.listen(PORT,()=>{
