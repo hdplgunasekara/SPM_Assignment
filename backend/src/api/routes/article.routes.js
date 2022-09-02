@@ -29,7 +29,72 @@ router.post("/add", async (req, res) => {
 	}
 });
 
-//add notes end
+//add article end
+
+//fetch article start
+
+router.get("/list",async (req, res) => {
+
+	Article.find({status:"Active"}).then((articles)=>{
+        res.json(articles)
+    }).catch((err)=>{
+        res.status(500).send({ message: "Server Error" });
+    })
+});
+
+//fetch notes end
+
+//update note start
+
+router.put("/update/:id",async(req ,res)=>{
+
+    let articleId = req.params.id;
+    const{title,description}=req.body;
+
+    const updateArticle={
+        title,
+        description
+        
+    }
+    const update = await Article.findByIdAndUpdate(articleId,updateArticle).then(()=>{
+        res.status(200).send({status: "Article updated"})
+    }).catch((err)=>{
+        console.log(err);
+        res.status(500).send({status:"Error with updating data",error:err.message})
+    })
+
+
+});
+
+//update note end
+
+//delete note start
+
+router.put("/delete/:id",async(req ,res)=>{
+
+    let articleId = req.params.id;
+
+    const updateArticle={
+        status:"Deleted"
+        
+    }
+
+    const update = await Article.findByIdAndUpdate(articleId,updateArticle).then(()=>{
+        res.status(200).send({status: "Article deleted"})
+    }).catch((err)=>{
+        console.log(err);
+        res.status(500).send({status:"Error with updating data",error:err.message})
+    })
+
+
+});
+
+//delete note end
+
+
+//fetch article end 
+
+
 
 
 
