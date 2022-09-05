@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { default: mongoose } = require("mongoose");
-let {Article} = require("../models/article");
+let {Article,validateArticle} = require("../models/article");
 
 
 //add article start 
@@ -9,6 +9,10 @@ router.post("/add", async (req, res) => {
     const title = req.body.title;
     const description = req.body.description;
 	try {
+        const { error } = validateArticle(req.body);
+		if (error)
+			return res.status(400).send({ message: error.details[0].message });
+
 
         const newArticle = new Article({
                
