@@ -19,7 +19,7 @@ router.post("/add", async (req, res) => {
                 title,
                 description,
                 userid:"1",
-                status:"Active"
+                status:"Pending"
         })
 
 		newArticle.save()
@@ -39,21 +39,25 @@ router.post("/add", async (req, res) => {
 
 router.get("/list",async (req, res) => {
 
-	Article.find({status:"Active"}).then((articles)=>{
+	Article.find({status:"Deleted"}).then((articles)=>{
         res.json(articles)
     }).catch((err)=>{
         res.status(500).send({ message: "Server Error" });
     })
 });
 
-//fetch notes end
+//fetch article end
 
-//update note start
+//update article start
 
 router.put("/update/:id",async(req ,res)=>{
 
     let articleId = req.params.id;
     const{title,description}=req.body;
+   
+    const { error } = validateArticle(req.body);
+		if (error)
+			return res.status(400).send({ message: error.details[0].message });
 
     const updateArticle={
         title,
@@ -70,17 +74,16 @@ router.put("/update/:id",async(req ,res)=>{
 
 });
 
-//update note end
+//update article end
 
-//delete note start
+//delete article start
 
 router.put("/delete/:id",async(req ,res)=>{
 
     let articleId = req.params.id;
 
     const updateArticle={
-        status:"Deleted"
-        
+        status:"Deleted"        
     }
 
     const update = await Article.findByIdAndUpdate(articleId,updateArticle).then(()=>{
@@ -93,10 +96,39 @@ router.put("/delete/:id",async(req ,res)=>{
 
 });
 
-//delete note end
+//delete articel end
+
+//active article start
+
+router.put("/active/:id",async(req ,res)=>{
+
+    let articleId = req.params.id;
+
+    try {
+
+        const updateArticle={
+            status:"Active"        
+        }
+        
+        const update = await Article.findByIdAndUpdate(articleId,updateArticle).then(()=>{
+            res.status(200).send({status: "Article Accepted"})
+        }).catch((err)=>{
+            console.log(err);
+            res.status(500).send({status:"Error with accepting article",error:err.message})
+        })
+        
+    } catch (error) {
+
+        res.status(500).send({ message: "Server Error" });
+        
+    }
+
+   
 
 
-//fetch article end 
+});
+//active article end
+
 
 
 
