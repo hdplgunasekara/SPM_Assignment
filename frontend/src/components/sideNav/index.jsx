@@ -15,9 +15,9 @@ const SideNav = ()=>{
 
  </div>
  <div className="menu">
-  <a href="#home" className="item"><i class="fa fa-fw fa-home"></i> Dashboard</a>
-  <a href="#services" className="item"><i class="fa fa-fw fa-wrench"></i> Article List</a>
-  <a href="#clients" className="item" ><i class="fa fa-fw fa-user"></i> Add Article</a>
+  <a href="/article" className="item"><i class="fa fa-fw fa-home"></i> Dashboard</a>
+  <a href="/article/list" className="item"><i class="fa fa-fw fa-wrench"></i> Article List</a>
+  <a href="/article/add" className="item" ><i class="fa fa-fw fa-user"></i> Add Article</a>
   <a href="#contact" className="item"><i class="fa fa-fw fa-envelope"></i>Support</a>
   </div>
 </div>
