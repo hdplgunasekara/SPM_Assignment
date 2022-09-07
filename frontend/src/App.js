@@ -3,6 +3,7 @@ import './App.css';
 
 //pasindu 
 import ArticleList from "./pages/article/ArticleList";
+import AddArticle from "./pages/article/AddArticle";
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
     <Routes>
       {/* Pasindu  */}      
       <Route exact path="/article/list" element={<ArticleList />} />
+      <Route exact path="/article/add" element={<AddArticle />} />
 
     </Routes>
   </Router>
