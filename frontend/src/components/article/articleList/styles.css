@@ -1,0 +1,55 @@
+.main{
+  margin-top: 10px;
+}
+
+.card-deck{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: 10px;
+    margin-left: 30px;
+
+    text-align: center;
+    font-family: arial;
+    align-items: center;
+    
+  }
+
+  .card h1{
+    font-size: 25px;
+    font-style: bold;
+  }
+  
+  .price {
+    color: grey;
+    font-size: 22px;
+  }
+  
+  .button-group{
+    display: inline;
+  
+  }
+
+  .btn{
+    margin-left: 5px;
+    margin-bottom: 10px;
+  }
+
+  .thumb-img{
+    height: 150px;
+    width: auto;
+    border-radius: 10px;
+    margin: 5px;
+  }
+  
+  .Search-container{
+    width: 300px;
+    
+    margin-left: 30px;
+
+  }
