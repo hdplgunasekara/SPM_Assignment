@@ -29,9 +29,12 @@ connection.once("open",()=>{
 });
 
 const articleRoutes = require("./src/api/routes/article.routes");
+const bookRoutes = require("./src/api/routes/book.routes");
 
 
 app.use("/article",articleRoutes);
+app.use("/api/book",bookRoutes);
+
 
 
 app.listen(PORT,()=>{
