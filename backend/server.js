@@ -29,7 +29,6 @@ connection.once("open",()=>{
 });
 
 const articleRoutes = require("./src/api/routes/article.routes"); //hellow thaanish
-//this is sample
 
 app.use("/article",articleRoutes);
 
