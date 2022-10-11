@@ -10,7 +10,7 @@ require("dotenv").config();
 const PORT = process.env.PORT || 8090;
 
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json({limit: "30mb",extended:true}));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const URL=process.env.MONGODB_URL;
@@ -29,7 +29,6 @@ connection.once("open",()=>{
 });
 
 const articleRoutes = require("./src/api/routes/article.routes");
-
 
 app.use("/article",articleRoutes);
 

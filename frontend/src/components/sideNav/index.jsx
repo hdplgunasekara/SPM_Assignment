@@ -11,7 +11,7 @@ const SideNav = ()=>{
 <div class="sidebar">
  <div className="pro-container">
  <img className="propic" src={propic} />
- <p className="pro-name">Your name here</p>
+ <p className="pro-name">Pasindu (Online)</p>
 
  </div>
  <div className="menu">
