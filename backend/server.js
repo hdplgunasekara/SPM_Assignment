@@ -28,7 +28,7 @@ connection.once("open",()=>{
     console.log("MongoDB Connected");
 });
 
-const articleRoutes = require("./src/api/routes/article.routes");
+// const articleRoutes = require("./src/api/routes/article.routes");
 
 app.use("/article",articleRoutes);
 
