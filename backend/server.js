@@ -28,7 +28,8 @@ connection.once("open",()=>{
     console.log("MongoDB Connected");
 });
 
-const articleRoutes = require("./src/api/routes/article.routes"); //hellow thaanish
+const articleRoutes = require("./src/api/routes/article.routes"); 
+
 
 app.use("/article",articleRoutes);
 
