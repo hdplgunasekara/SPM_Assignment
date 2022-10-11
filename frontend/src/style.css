@@ -17,7 +17,7 @@
 @media (min-width: 992px) {
     .navbar-vertical.navbar-expand-lg {
         position: fixed;
-        top: 11%;
+        /* top: 10.6%; */
         bottom: 0;
         height: 100%;
         display: block;
