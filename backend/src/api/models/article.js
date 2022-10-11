@@ -19,9 +19,13 @@ const articleSchema = new Schema({
         type : String,
         required : true
     },
+    image : {
+        type : String,
+        required : true
+    },
 
 
-});
+},{ timestamps: true });
 
 
 
@@ -38,6 +42,8 @@ const validateArticle= (data) => {
        .label("Description")
        .min(20)
        .required(),
+
+    
 		
 	});
 	return schema.validate(data);

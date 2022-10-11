@@ -10,6 +10,7 @@ const AddArticle = ()=>{
     return(
         <div>
         <TopNav/>
+        
         <div className="layout">
         <SideNav/>
         <ArticleList/>
